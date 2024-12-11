@@ -2,6 +2,7 @@ class Arreglo(object):
     def __init__(self, initialSize):
         self.__a = [None] * initialSize
         self.__nItems = 0
+   
     def __len__(self):  
         return self.__nItems 
 
@@ -19,7 +20,6 @@ class Arreglo(object):
            if self.__a[i]==self.__a[i+1]:
                self.delete(self.__a[i])    
          
-    
     def traverse(self, function=print): 
         for j in range(self.__nItems):  
             function(self.__a[j]) 
