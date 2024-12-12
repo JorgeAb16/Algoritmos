@@ -1,0 +1,37 @@
+class ListNode:
+    def __init__(self, value=0, next=None):
+        self.value = value
+        self.next = next
+
+def merge_sorted_lists(list1, list2):
+    dummy = ListNode()
+    current = dummy
+
+    while list1 and list2:
+        if list1.value < list2.value:
+            current.next = list1
+            list1 = list1.next
+        else:
+            current.next = list2
+            list2 = list2.next
+        current = current.next
+
+    if list1:
+        current.next = list1
+    if list2:
+        current.next = list2
+
+    return dummy.next
+
+def print_list(head):
+    while head:
+        print(head.value, end=" -> ")
+        head = head.next
+    print("None")
+
+list1 = ListNode(1, ListNode(3, ListNode(5)))
+list2 = ListNode(2, ListNode(4, ListNode(6)))
+
+merged_list = merge_sorted_lists(list1, list2)
+
+print_list(merged_list)
